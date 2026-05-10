@@ -287,22 +287,5 @@ else:
     plt.tight_layout()
     plt.show()
 
-# Histogram: distribution of positive shortfall magnitudes (out-of-sample)
-shortfalls_alsox = np.maximum(0, R_alsox - out_sample)
-shortfalls_cvar = np.maximum(0, R_cvar - out_sample)
-
-# Keep only minutes where shortfall > 0
-alsox_shortfalls_values = shortfalls_alsox[shortfalls_alsox > 0]
-cvar_shortfalls_values = shortfalls_cvar[shortfalls_cvar > 0]
-
-plt.figure(figsize=(10, 5))
-plt.hist(alsox_shortfalls_values, bins=30, alpha=0.5, label="ALSO-X Shortfalls", color="red")
-plt.hist(cvar_shortfalls_values, bins=30, alpha=0.5, label="CVaR Shortfalls", color="blue")
-plt.title("Distribution of Shortfall Magnitudes (Out-of-Sample)")
-plt.xlabel("Shortfall Size (kW)")
-plt.ylabel("Frequency (Minutes)")
-plt.legend()
-plt.tight_layout()
-plt.show()
 
 
